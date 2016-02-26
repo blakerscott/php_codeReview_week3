@@ -12,7 +12,7 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-     class CuisineTest extends PHPUnit_Framework_TestCase
+     class StylistTest extends PHPUnit_Framework_TestCase
      {
 
         protected function tearDown()
@@ -40,23 +40,23 @@
             //Arrange
             $name = "Sara";
             $name2 = "Brian";
-            $test_Stylist = new Stylist($name);
-            $test_Stylist->save();
-            $test_Stylist2 = new Stylist($name2);
-            $test_Stylist2->save();
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+            $test_stylist2 = new Stylist($name2);
+            $test_stylist2->save();
 
             //Act
             $result = Stylist::getAll();
 
             //Assert
-            $this->assertEquals([$test_Stylist, $test_Stylist2], $result);
+            $this->assertEquals([$test_stylist, $test_stylist2], $result);
         }
 
         function test_deleteAll()
         {
             //Arrange
-            $type = "Sara";
-            $type2 = "Brian";
+            $name = "Sara";
+            $name2 = "Brian";
             $test_Stylist = new Stylist($name);
             $test_Stylist->save();
             $test_Stylist2 = new Stylist($name2);
