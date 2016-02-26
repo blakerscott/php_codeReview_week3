@@ -1,0 +1,9 @@
+Stylist Specs:
+1. Will it save to the database?
+2. Will is get all stylists from the database?
+3. Will it get all clients for each stylist from the database?
+4. Will it delete all stylists?
+5. Will it find one stylist out of many from the database?
+6. Will it update a single stylist?
+7. Will it destroy a single stylist?
+8. Will it also destroy all clients related to that stylist? 
