@@ -38,7 +38,7 @@
 
          function getAge()
          {
-             return $this->happy_hour;
+             return $this->age;
          }
 
          function setHairstyle($new_hairstyle)
@@ -55,5 +55,45 @@
          {
              return $this->stylist_id;
          }
+
+				 function save()
+	        {
+	            $GLOBALS['DB']->exec("INSERT INTO client (name, age, hairstyle, stylist_id) VALUES ('{$this->getName()}', {$this->getAge()}, '{$this->getHairstyle()}', {$this->getStylistId()});");
+	            $this->id = $GLOBALS['DB']->lastInsertId();
+	        }
+
+        static function getAll()
+        {
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM  client;");
+            $clients = array();
+            foreach($returned_clients as $client) {
+                $name = $client['name'];
+                $age = $client['age'];
+                $id = $client['id'];
+                $stylist_id = $client['stylist_id'];
+                $hairstyle = $client['hairstyle'];
+                $new_client = new Client($id, $name, $age, $hairstyle, $stylist_id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM client;");
+        }
+
+        static function find($search_id)
+        {
+            $found_client = null;
+            $clients = Client::getAll();
+            foreach($clients as $client) {
+                $client_id = $client->getId();
+                if ($client_id == $search_id) {
+                  $found_client = $client;
+                }
+            }
+            return $found_client;
+        }
     }
  ?>

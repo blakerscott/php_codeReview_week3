@@ -5,7 +5,7 @@
     * @backupStaticAttributes disabled
     */
       require_once "src/Client.php";
-     require_once "src/Stylist.php";
+      require_once "src/Stylist.php";
 
      $server = 'mysql:host=localhost;dbname=hair_salon_test';
      $username = 'root';
@@ -13,7 +13,7 @@
      $DB = new PDO($server, $username, $password);
 
 
-      class CLientTest extends PHPUnit_Framework_TestCase
+      class ClientTest extends PHPUnit_Framework_TestCase
       {
          protected function tearDown()
          {
@@ -29,13 +29,13 @@
            $id = null;
            $test_stylist = new Stylist($name, $id);
            $test_stylist->save();
+           var_dump($test_stylist);
 
-
-           $name = "Goff Uckyrself";
+           $name2 = "Goff Uckyrself";
            $age = 10;
            $hairstyle = "short";
            $stylist_id = $test_stylist->getId();
-           $test_client = new Client($id, $name, $age, $hairstyle, $stylist_id);
+           $test_client = new Client($id, $name2, $age, $hairstyle, $stylist_id);
            $test_client->save();
 
            //Act
@@ -52,19 +52,19 @@
            $test_stylist = new Stylist($name, $id);
            $test_stylist->save();
 
-           $name = "Goff Uckyrself";
+           $name1 = "Goff Uckyrself";
            $age = 10;
            $hairstyle = "short";
            $stylist_id = $test_stylist->getId();
-           $test_client = new Client($id, $name, $age, $hairstyle, $stylist_id);
+           $test_client = new Client($id, $name1, $age, $hairstyle, $stylist_id);
            $test_client->save();
 
 
            $name2 = "Jim James";
            $age2 = 30;
            $hairstyle2 = "long and curly";
-           $stylist_id2 = $test_stylist2->getId();
-           $test_client2 = new Client($id2, $name2, $age2, $hairstyle2, $stylist_id2);
+           $stylist_id2 = $test_stylist->getId();
+           $test_client2 = new Client($id, $name2, $age2, $hairstyle2, $stylist_id2);
            $test_client2->save();
 
 
@@ -93,8 +93,8 @@
          $name2 = "Jim James";
          $age2 = 30;
          $hairstyle2 = "long and curly";
-         $stylist_id2 = $test_stylist2->getId();
-         $test_client2 = new Client($id2, $name2, $age2, $hairstyle2, $stylist_id2);
+         $stylist_id2 = $test_stylist->getId();
+         $test_client2 = new Client($id, $name2, $age2, $hairstyle2, $stylist_id2);
 
 
          //Act
