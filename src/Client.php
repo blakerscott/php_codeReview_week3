@@ -58,13 +58,13 @@
 
 				 function save()
 	        {
-	            $GLOBALS['DB']->exec("INSERT INTO client (name, age, hairstyle, stylist_id) VALUES ('{$this->getName()}', {$this->getAge()}, '{$this->getHairstyle()}', {$this->getStylistId()});");
+	            $GLOBALS['DB']->exec("INSERT INTO clients (name, age, hairstyle, stylist_id) VALUES ('{$this->getName()}', {$this->getAge()}, '{$this->getHairstyle()}', {$this->getStylistId()});");
 	            $this->id = $GLOBALS['DB']->lastInsertId();
 	        }
 
         static function getAll()
         {
-            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM  client;");
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM  clients;");
             $clients = array();
             foreach($returned_clients as $client) {
                 $name = $client['name'];
@@ -80,7 +80,7 @@
 
         static function deleteAll()
         {
-            $GLOBALS['DB']->exec("DELETE FROM client;");
+            $GLOBALS['DB']->exec("DELETE FROM clients;");
         }
 
         static function find($search_id)
@@ -98,7 +98,7 @@
 
         function updateClient($new_name, $new_age, $new_hairstyle)
         {
-            $GLOBALS['DB']->exec("UPDATE client SET name = '{$new_name}', age = {$new_age}, hairstyle = '{$new_hairstyle}' WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE clients SET name = '{$new_name}', age = {$new_age}, hairstyle = '{$new_hairstyle}' WHERE id = {$this->getId()};");
 
             $this->setName($new_name);
             $this->setAge($new_age);
@@ -107,7 +107,7 @@
 
         function delete()
         {
-            $GLOBALS['DB']->exec("DELETE FROM client WHERE stylist_id = {$this->getStylistId()};");
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE stylist_id = {$this->getStylistId()};");
         }
 
 

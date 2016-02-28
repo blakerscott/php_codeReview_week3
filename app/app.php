@@ -69,9 +69,10 @@
         $hairstyle = $_POST['hairstyle'];
         $stylist_id = $_POST['stylist_id'];
         $client = new Client($id= null, $name, $age, $hairstyle, $stylist_id);
+        var_dump($client);
         $client->save();
         $stylist = Stylist::find($stylist_id);
-        return $app['twig']->render('Stylists.html.twig', array('stylist' => $stylist, 'clients' => $client->getClients()));
+        return $app['twig']->render('stylists.html.twig', array('stylist' => $stylist, 'client' => $stylist->getClients()));
     });
 
     $app->get("/clients/{id}/edit", function($id) use ($app) {

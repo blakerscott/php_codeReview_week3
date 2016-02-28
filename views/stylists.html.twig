@@ -4,7 +4,7 @@
      <title>Stylists</title>
  </head>
  <body>
-     <h1>{{ stylist.getType }}</h1>
+     <h1>{{ stylist.getName }}</h1>
 
      {% if clients is not empty %}
          <p>Here are the clients:</p>
@@ -31,13 +31,13 @@
          <label for='name'>Client Name</label>
          <input id='name' name='name' type='text'>
          <label for='age'>Age</label>
-         <input id='age' name='age' type='text'>
+         <input id='age' name='age' type='number'>
          <label for='hairstyle'>Client's Hairstyle</label>
          <input id='hairstyle' name='hairstyle' type='text'>
 
          <button type='submit'>Add Client</button>
      </form>
-     <p><a href="/cuisines/{{ cuisine.getId }}/edit">Edit this Stylist</a></p>
+     <p><a href="/stylists/{{ stylist.getId }}/edit">Edit this Stylist</a></p>
      <br>
      <p><a href='/'>Return to Homepage</a></p>
  </body>
