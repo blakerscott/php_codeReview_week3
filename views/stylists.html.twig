@@ -1,0 +1,43 @@
+<html>
+ <head>
+     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+     <title>Stylists</title>
+ </head>
+ <body>
+     <h1>{{ stylist.getType }}</h1>
+
+     {% if clients is not empty %}
+         <p>Here are the clients:</p>
+         <ul>
+             {% for client in clients %}
+                 <li>{{ client.getName }}</li>
+                 <ul>
+                    <li>Age: {{ restaurant.getAge }}</li>
+                    <li>Hairstyle: {{ restaurant.getHairstyle }}</li>
+                </ul>
+             {% endfor %}
+         </ul>
+         {% else %}
+             <p>
+                 No clients found.
+             </p>
+
+     {% endif %}
+
+     <h4>Add a client</h4>
+
+     <form action='/clients' method='post'>
+         <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
+         <label for='name'>CLient Name</label>
+         <input id='name' name='name' type='text'>
+         <label for='age'>Age</label>
+         <input id='age' name='age' type='text'>
+         <label for='hairstyle'>Client's Hairstyle</label>
+         <input id='hairstyle' name='hairstyle' type='text'>
+
+         <button type='submit'>Add Client</button>
+     </form>
+
+     <p><a href='/'>Return to Homepage</a></p>
+ </body>
+</html>
