@@ -12,8 +12,8 @@
              {% for client in clients %}
                  <li>{{ client.getName }}</li>
                  <ul>
-                    <li>Age: {{ restaurant.getAge }}</li>
-                    <li>Hairstyle: {{ restaurant.getHairstyle }}</li>
+                    <li>Age: {{ client.getAge }}</li>
+                    <li>Hairstyle: {{ client.getHairstyle }}</li>
                 </ul>
              {% endfor %}
          </ul>
@@ -28,7 +28,7 @@
 
      <form action='/clients' method='post'>
          <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
-         <label for='name'>CLient Name</label>
+         <label for='name'>Client Name</label>
          <input id='name' name='name' type='text'>
          <label for='age'>Age</label>
          <input id='age' name='age' type='text'>
