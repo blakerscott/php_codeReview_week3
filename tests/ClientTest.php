@@ -154,7 +154,7 @@
 
 
             //Act
-            $test_client->updateClient($new_name, $new_age, $hairstyle);
+            $test_client->updateClient($new_name, $new_age, $new_hairstyle);
             // $result = Restaurant::getAll();
 
             //Assert
