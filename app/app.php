@@ -56,7 +56,7 @@
         $type = $_POST['type'];
         $stylist = Stylist::find($id);
         $stylist->update($type);
-        return $app['twig']->render('stylists.html.twig', array('stylist' => $stylist, 'client' => $stylist->getRestaurants()));
+        return $app['twig']->render('stylists.html.twig', array('stylist' => $stylist, 'client' => $stylist->getClients()));
     });
 
     //////////////////////
@@ -71,7 +71,7 @@
         $client = new Client($id= null, $name, $age, $hairstyle, $stylist_id);
         $client->save();
         $stylist = Stylist::find($stylist_id);
-        return $app['twig']->render('cuisines.html.twig', array('cuisine' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
+        return $app['twig']->render('Stylists.html.twig', array('stylist' => $stylist, 'clients' => $client->getClients()));
     });
 
     $app->get("/clients/{id}/edit", function($id) use ($app) {
