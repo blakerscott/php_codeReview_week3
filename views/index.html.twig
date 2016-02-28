@@ -1,26 +1,33 @@
-<h1>Welcome to Best Restaurants</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title></title>
+    </head>
+    <body>
+        <h1>Blake's hair salon app:</h1>
 
--            </div>
--        </div>
-+        <p>Create a new cuisine type:</p>
-+
-+        <form action="/cuisines" method="post">
-+            <label for="type">Cuisine type:</label>
-+            <input id="type" name="type" type="text">
-+
-+            <button type="submit">Add Cuisine</button>
-+        </form>
-+
-+        {% if cuisines is not empty %}
-+            <p>Here are all your cuisine types:</p>
-+            <ul>
-+                {% for cuisine in cuisines %}
-+                    <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getType }}</a></li>
-+                {% endfor %}
-+            </ul>
-+            <!-- <form action="/delete_cuisines" method="post">
-+                <button type="submit" name="button">Delete All Cuisines</button>
-+            </form> -->
-+        {% else %}
-+          <p>There are no cuisine types yet!</p>
-+        {% endif %}
+        <p>Create a new stylist type:</p>
+
+        <form action="/stylists" method="post">
+            <label for="type">Stylist type:</label>
+            <input id="type" name="type" type="text">
+
+            <button type="submit">Add Stylist</button>
+        </form>
+
+        {% if stylists is not empty %}
+            <p>Here are the stylists of Blake's Salon:</p>
+            <ul>
+                {% for stylist in stylists %}
+                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                {% endfor %}
+            </ul>
+            <form action="/delete_stylists" method="post">
+                <button type="submit" class="btn btn-danger" name="button">CAUTION: THIS BUTTON WILL DELETE ALL STYLISTS!!!!!</button>
+            </form>
+        {% else %}
+          <p>There are no stylist at this time!</p>
+        {% endif %}
+    </body>
+</html>
