@@ -184,5 +184,33 @@
             $this->assertEquals([], Client::getAll());
         }
 
+        function testDeleteOneRestaurant()
+        {
+            //Arrange
+            $name = "John";
+            $id = null;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $name1 = "Bill";
+            $age1 = 20;
+            $hairstyle1 = "short";
+            $stylist_id1 = $test_stylist->getId();
+            $test_client1 = new Client($id = null, $name1, $age1, $hairstyle1, $stylist_id1);
+            $test_client1->save();
+
+            $name2 = "steve";
+            $age2 = 10;
+            $hairstyle2 = "long";
+            $stylist_id2 = $test_stylist->getId();
+            $test_client2 = new Client($id = null, $name2, $age2, $hairstyle2, $stylist_id2);
+            $test_client2->save();
+
+            //Act
+            $test_client->deleteOneClient();
+            //Assert
+            $this->assertEquals([$test_client2], Client::getAll());
+        }
+
     }
 ?>
