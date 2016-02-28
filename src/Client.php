@@ -96,6 +96,11 @@
             return $found_client;
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM client WHERE stylist_id = {$this->getStylistId()};");
+        }
+
 
     }
  ?>
