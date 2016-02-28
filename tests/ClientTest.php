@@ -128,11 +128,38 @@
              $test_client2->save();
 
              //Act
-             $result = CLient::find($test_client->getId());
+             $result = Client::find($test_client->getId());
 
              //Assert
              $this->assertEquals($test_client, $result);
       }
+
+      function testUpdateClient()
+        {
+            //Arrange
+            $name = 'Sara';
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+
+            $name2 = "Javiers";
+            $age = 10;
+            $hairstyle = "short";
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($id = null, $name2, $age, $hairstyle, $stylist_id);
+            $test_client->save();
+
+            $new_name = "Phil";
+            $new_age = 40;
+            $new_hairstyle = "dreds";
+
+
+            //Act
+            $test_client->updateClient($new_name, $new_age, $hairstyle);
+            // $result = Restaurant::getAll();
+
+            //Assert
+            $this->assertEquals(["Phil", 40, "dreds"], [$test_client->getName(), $test_client->getAge(), $test_client->getHairstyle()]);
+        }
 
     }
 ?>

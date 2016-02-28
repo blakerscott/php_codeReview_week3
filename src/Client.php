@@ -96,6 +96,15 @@
             return $found_client;
         }
 
+        // function updateClient($new_name, $new_age, $new_hairstyle)
+        // {
+        //     $GLOBALS['DB']->exec("UPDATE client SET name = '{$new_name}', age = {$new_age}, hairstyle = '{$new_hairstyle}' WHERE id = {$this->getId()};");
+        //
+        //     $this->setName($new_name);
+        //     $this->setAge($new_age);
+        //     $this->setHairstyle($new_hairstyle);
+        // }
+
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM client WHERE stylist_id = {$this->getStylistId()};");
