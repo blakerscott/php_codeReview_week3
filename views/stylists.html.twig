@@ -15,6 +15,9 @@
                     <li>Age: {{ client.getAge }}</li>
                     <li>Hairstyle: {{ client.getHairstyle }}</li>
                 </ul>
+                <form action="/clients/{{ client.getId }}/edit" >
+                    <button type="submit" name="button">Edit this client</button>
+                </form>
              {% endfor %}
          </ul>
          {% else %}
