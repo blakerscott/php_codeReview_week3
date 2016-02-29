@@ -5,29 +5,32 @@
         <title></title>
     </head>
     <body>
-        <h1>Blake's hair salon app:</h1>
-
-        <p>Add a new stylist to the database:</p>
-
+      <div class="container">
+        <h1>Welcome to Blake's Hair Salon app!</h1>
+        <br>
+        <h3>Add a new stylist to the database:</h3>
+        <br>
         <form action="/stylists" method="post">
             <label for="name">Stylist name:</label>
             <input id="name" name="name" type="text">
 
             <button type="submit">Add Stylist</button>
         </form>
-
+        <br><br>
         {% if stylists is not empty %}
-            <p>Here are the stylists of Blake's Salon:</p>
+            <h3>Here are the stylists of Blake's Salon:</h3>
             <ul>
                 {% for stylist in stylists %}
                     <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
                 {% endfor %}
             </ul>
-            <form action="/delete_stylists" method="post">
-                <button type="submit" class="btn btn-danger" name="button">CAUTION: THIS BUTTON WILL DELETE ALL STYLISTS!!!!!</button>
-            </form>
         {% else %}
-          <p>There are no stylist at this time!</p>
+          <h2>There are no stylist at this time!</h2>
         {% endif %}
+        <br><br><br><br><br>
+        <form action="/delete_stylists" method="post">
+            <button type="submit" class="btn btn-danger" name="button">CAUTION: THIS BUTTON WILL DELETE ALL STYLISTS!!!!!</button>
+        </form>
+      </div>
     </body>
 </html>

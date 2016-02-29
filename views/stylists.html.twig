@@ -4,10 +4,11 @@
      <title>Stylists</title>
  </head>
  <body>
-     <h1>{{ stylist.getName }}</h1>
-
+   <div class="container">
+     <h1>Welcome to {{ stylist.getName }}'s personal page!</h1>
+     <br>
      {% if clients is not empty %}
-         <p>Here are the clients:</p>
+         <h3>Here is the current list of {{ stylist.getName }}'s clients:</h3>
          <ul>
              {% for client in clients %}
                  <li>{{ client.getName }}</li>
@@ -21,13 +22,12 @@
              {% endfor %}
          </ul>
          {% else %}
-             <p>
-                 No clients found.
-             </p>
+             <h3>
+                 No clients have been added.
+             </h3>
 
      {% endif %}
-
-     <h4>Add a client</h4>
+     <h3>Add a client:</h3>
 
      <form action='/clients' method='post'>
          <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
@@ -40,8 +40,9 @@
 
          <button type='submit'>Add Client</button>
      </form>
-     <p><a href="/stylists/{{ stylist.getId }}/edit">Edit this Stylist</a></p>
-     <br>
-     <p><a href='/'>Return to Homepage</a></p>
+     <h3><a href="/stylists/{{ stylist.getId }}/edit">Edit this Stylist</a></h3>
+
+     <h3><a href='/'>Return to Homepage</a></h3>
+   </div>
  </body>
 </html>

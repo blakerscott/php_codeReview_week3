@@ -5,6 +5,7 @@
         <title></title>
     </head>
     <body>
+      <div class="container">
         <h1>Update {{ stylist.getName }}'s information:</h1>
 
         <form action="/stylists/{{ stylist.getId }}" method="post">
@@ -15,5 +16,6 @@
 
           <button type="submit">Update</button>
         </form>
+      </div>
     </body>
 </html>

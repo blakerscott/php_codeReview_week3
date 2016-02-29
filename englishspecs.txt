@@ -3,11 +3,10 @@ The app should do the following:
 Stylist Specs:
 1. It should be able to create a stylist and save to the database.
 2. It should list all stylists.
-3. It should show all clients for each stylist.
-4. It should delete all stylists and their clients.
-5. It should navigate to an individual stylists page when you click on their name, and that page should list all of the clients for that stylist.
-6. It should update a single stylist.
-7. It should destroy a single stylist and their clients.
+3. It should delete all stylists and their clients.
+4. It should navigate to an individual stylists page when you click on their name, and that page should list all of the clients for that stylist.
+5. It should update a single stylist.
+6. It should destroy a single stylist and their clients.
 
 
 Client Specs:
@@ -19,4 +18,5 @@ Client Specs:
 
 
 Optional:
-A page to display all clients for the entire salon.  You can click on a client name and it takes you to their respective stylists page stylist.
+1. A page to display all clients for the entire salon.  You can click on a client name and it takes you to their respective stylists page stylist.
+2. Add a second page that is navigated to when the user selects delete all stylists.  ON the second page, it will have another button that reads CLICK THIS BUTTON ONLY IF YOU ARE SURE YOU WOULD LIKE TO DELETE ALL STYLISTS.  THIS ACTION CANNOT BE UNDONE. This button will be the button that actually performs the action.
