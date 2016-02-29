@@ -1,5 +1,3 @@
-# TITLE
-
 ## Epicodus PHP Course - Week 3: Database Basics with PHP
 
 ### By: Blake Scott
