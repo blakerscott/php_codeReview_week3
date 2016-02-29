@@ -5,15 +5,25 @@
         <title></title>
     </head>
     <body>
-        <h1>Update the {{ stylist.getName }} Stylist </h1>
+        <h1>Update the client </h1>
 
-        <form action="/stylists/{{ stylist.getId }}" method="post">
+        <form action="/client/{{ client.getId }}" method="post">
           <input name="_method" type="hidden" value="patch">
 
-          <label for="type">Rename your Stylist:</label>
-          <input id="type" name="type" type="text">
+          <label for="name">Rename your client:</label>
+          <input id="name" name="name" type="text" value= "{{ client.getName }}"><br>
+          <label for="age">Change client address:</label>
+          <input id="age" name="age" type="number" value= "{{ client.getAge }}">
+          <label for="hairstyle">Change client address:</label>
+          <input id="hairstyle" name="hairstyle" type="text" value= "{{ client.getHairstyle }}">
 
           <button type="submit">Update</button>
         </form>
+        <form action="/client/{{ client.getId}}/delete" method="post">
+          <input name="_method" type="hidden" value="delete">
+
+          <button type="submit">Delete This Client</button>
+        </form>
+
     </body>
 </html>
