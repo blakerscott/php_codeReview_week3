@@ -184,7 +184,7 @@
             $this->assertEquals([], Client::getAll());
         }
 
-        function testDeleteOneRestaurant()
+        function testDeleteOneClient()
         {
             //Arrange
             $name = "John";
@@ -207,7 +207,7 @@
             $test_client2->save();
 
             //Act
-            $test_client->deleteOneClient();
+            $test_client1->deleteOneClient();
             //Assert
             $this->assertEquals([$test_client2], Client::getAll());
         }
